@@ -11,17 +11,20 @@ When connecting an external hard drive or a USB flash drive formatted with Micro
 
 This usually happens because Windows features like **Fast Startup** or an unsafe drive removal leave a pending "dirty flag" on the file system, locking it for safety.
 
+#### Error Screenshot:
+![NTFS Mount Error](ntfs_error.png)
+
 ### 💡 Step-by-Step Solution
 
 1. **Install the Required Driver:**
    Ensure you have the necessary NTFS driver installed on your distribution. For Debian/Ubuntu-based systems, run:
-```bash
+   ```bash
    sudo apt install ntfs-3g
 Repair and Clear the Flags:
 Open your Terminal and execute the following command to fix the filesystem inconsistencies and clear the mount locks:
 
 Bash
-   sudo ntfsfix -b -d /dev/sdc1
+sudo ntfsfix -b -d /dev/sdc1
 ⚠️ Note: Make sure to replace /dev/sdc1 with your actual drive identifier.
 
 Understanding the Flags Used:
